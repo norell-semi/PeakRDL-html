@@ -339,6 +339,7 @@ class HTMLExporter:
             'view_source_url': view_source_url,
             'view_source_filename': view_source_filename,
             'reg_fields_are_low_to_high': reg_fields_are_low_to_high,
+            'field_display_name': field_display_name,
             'skip_not_present': self.skip_not_present,
             'highest_fields_first': not self.reverse_fields
         }
@@ -555,6 +556,14 @@ def reg_fields_are_low_to_high(node: RegNode) -> bool:
         if field.msb < field.lsb:
             return True
     return False
+
+def field_display_name(field: FieldNode) -> str:
+    """
+    Anonymous fields are displayed using their register's name
+    """
+    if field.is_anonymous:
+        return field.parent.inst_name
+    return field.inst_name
 
 def copy_recursive(src: str, dst: str) -> None:
     """

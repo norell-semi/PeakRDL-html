@@ -51,9 +51,9 @@
         {%- endif %}
         <td>
             {%- if (has_description(field) or has_enum_encoding(field)) -%}
-                <a href="#{{field.inst_name}}.desc">{{field.inst_name}}</a>
+                <a href="#{{field.inst_name}}.desc">{{field_display_name(field)}}</a>
             {%- else -%}
-                {{- field.inst_name -}}
+                {{- field_display_name(field) -}}
             {%- endif -%}
         </td>
         <td>

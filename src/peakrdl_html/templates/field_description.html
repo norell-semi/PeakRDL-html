@@ -1,9 +1,9 @@
 {%- import "macros.html" as macros with context %}
 <h3 id="{{field.inst_name}}.desc">
     {%- if field.get_property("name", default="") == "" -%}
-        {{- field.inst_name -}}
+        {{- field_display_name(field) -}}
     {%- else -%}
-        {{- field.inst_name}} - {{field.get_html_name()|safe -}}
+        {{- field_display_name(field)}} - {{field.get_html_name()|safe -}}
     {%- endif %}
     <a class="headerlink" href="#{{field.inst_name}}.desc" title="Permalink to this headline"></a>
 </h3>
